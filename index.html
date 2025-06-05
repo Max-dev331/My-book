@@ -2,14 +2,68 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Моя Персональная Сказка</title>
-  <link href="style.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Персональная детская книга</title>
+  <style>
+    /* Сброс и базовые стили */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #f5f5f7;
+      color: #333;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    p.subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      color: #666;
+    }
+    button {
+      background-color: #ff6f61;
+      border: none;
+      color: white;
+      padding: 18px 50px;
+      font-size: 1.2rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-weight: 600;
+    }
+    button:hover {
+      background-color: #ff3b2d;
+    }
+    .hero-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      margin-bottom: 50px;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h1>Добро пожаловать в сказку!</h1>
-    <p>Создайте персонализированную книгу, в которой ваш ребёнок станет главным героем!</p>
+    <h1>Создайте уникальную детскую книгу с вашим ребёнком</h1>
+    <p class="subtitle">Добавьте имя и фото, и получите сказку с героем — вашим малышом!</p>
+    <img
+      src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=80"
+      alt="Детская книга"
+      class="hero-image"
+    />
     <button onclick="location.href='create.html'">Создать свою книгу</button>
   </div>
 </body>
