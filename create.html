@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Создать свою книгу</title>
+  <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <h1>Создайте свою персональную сказку</h1>
+    <form id="bookForm">
+      <label>Имя ребёнка:<br />
+        <input type="text" name="childName" required />
+      </label><br /><br />
+      <label>Возраст:<br />
+        <input type="number" name="childAge" min="2" max="10" required />
+      </label><br /><br />
+      <label>Фото ребёнка:<br />
+        <input type="file" name="childPhoto" accept="image/*" />
+      </label><br /><br />
+      <button type="submit">Посмотреть превью книги</button>
+    </form>
+
+    <div id="preview" style="margin-top: 20px;"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('bookForm');
+    const preview = document.getElementById('preview');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const name = form.childName.value;
+      const age = form.childAge.value;
+
+      let photoUrl = "";
+      const fileInput = form.childPhoto;
+      if (fileInput.files && fileInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function (event) {
+          photoUrl = event.target.result;
+          showPreview(name, age, photoUrl);
+        };
+        reader.readAsDataURL(fileInput.files[0]);
+      } else {
+        showPreview(name, age, photoUrl);
+      }
+    });
+
+    function showPreview(name, age, photoUrl) {
+      preview.innerHTML = `
+        <h2>Превью вашей сказки</h2>
+        <p>Имя героя: <b>${name}</b></p>
+        <p>Возраст героя: <b>${age}</b></p>
+        ${photoUrl ? `<img src="${photoUrl}" alt="Фото ребёнка" style="max-width: 200px; border-radius: 10px;" />` : '<p>Фото не загружено.</p>'}
+        <p>Здесь будет текст сказки с вашим ребёнком :)</p>
+      `;
+    }
+  </script>
+</body>
+</html>
