@@ -203,11 +203,12 @@ nav ul li a {
   margin-top: 40px;
 }
 
-.filter-container {
+.filter-row {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 15px;
+  flex-wrap: wrap;
+  gap: 80px; /* БОЛЬШОЙ интервал между блоками */
 }
 
 .gender-filter,
@@ -235,4 +236,3 @@ nav ul li a {
   font-size: 14px;
   padding: 6px 12px;
 }
-
