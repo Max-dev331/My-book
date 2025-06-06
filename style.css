@@ -100,4 +100,16 @@ nav ul li a {
   text-align: center;
   margin: 80px 0 40px;
 }
+.nav-links .nav-link {
+  color: #000;
+  text-decoration: none;
+  margin-left: 30px;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links .nav-link.active {
+  color: #e89b89; /* Персиковый цвет */
+}
 
