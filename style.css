@@ -88,3 +88,11 @@ nav ul li a {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+.quote {
+  font-size: 18px;
+  font-style: italic;
+  color: #7b4a3b;
+  margin: 20px 0;
+  line-height: 1.6;
+}
+
