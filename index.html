@@ -45,47 +45,48 @@
     </div>
   </main>
 
-  <!-- Добавленные карточки ВНИЗУ страницы -->
+  <!-- Возрастные карточки с ссылками и параметрами -->
   <section class="age-categories">
     <div class="container">
       <h2>Выберите историю по возрасту</h2>
       <div class="age-grid">
-        <div class="age-card">
-          <div class="card-image" style="background-image: url('age-0-2.jpg');"></div>
+        <a href="Book.html?age=0-2" class="age-card">
+          <div class="card-image">0-2 года</div>
           <div class="card-content">
             <h3>0-2 года</h3>
             <p>Первые сказки с яркими картинками</p>
           </div>
-        </div>
+        </a>
         
-        <div class="age-card">
-          <div class="card-image" style="background-image: url('age-2-4.jpg');"></div>
+        <a href="Book.html?age=2-4" class="age-card">
+          <div class="card-image">2-4 года</div>
           <div class="card-content">
             <h3>2-4 года</h3>
             <p>Добрые истории перед сном</p>
           </div>
-        </div>
+        </a>
         
-        <div class="age-card">
-          <div class="card-image" style="background-image: url('age-4-6.jpg');"></div>
+        <a href="Book.html?age=4-6" class="age-card">
+          <div class="card-image">4-6 лет</div>
           <div class="card-content">
             <h3>4-6 лет</h3>
             <p>Развивающие приключения</p>
           </div>
-        </div>
+        </a>
         
-        <div class="age-card">
-          <div class="card-image" style="background-image: url('age-6-8.jpg');"></div>
+        <a href="Book.html?age=6-8" class="age-card">
+          <div class="card-image">6-8 лет</div>
           <div class="card-content">
             <h3>6-8 лет</h3>
             <p>Захватывающие волшебные миры</p>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </section>
 
   <script>
+    // Подсветка активной страницы в навигации
     const currentPage = window.location.pathname.split("/").pop();
     const links = document.querySelectorAll(".nav-link");
 
