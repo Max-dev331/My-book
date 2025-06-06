@@ -109,7 +109,30 @@ nav ul li a {
   transition: color 0.3s ease;
 }
 
-.nav-links .nav-link.active {
-  color: #e89b89; /* Персиковый цвет */
+/* Подчёркивание при наведении */
+.nav-links .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #e89b89;
+  transition: width 0.3s ease;
 }
+
+.nav-links .nav-link:hover::after {
+  width: 100%;
+}
+
+/* Активная вкладка — персиковая и подчёркнутая */
+.nav-links .nav-link.active {
+  color: #e89b89;
+}
+
+.nav-links .nav-link.active::after {
+  width: 100%;
+  background-color: #e89b89;
+}
+
 
