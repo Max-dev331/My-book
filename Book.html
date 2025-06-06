@@ -21,24 +21,23 @@
 
   <main class="main-content">
     <h1 class="section-title">Все книги</h1>
-   <section class="filter-section">
-  <div class="filter-row">
-    <div class="gender-filter">
-      <label>Пол:</label>
-      <button class="filter-button" data-gender="boy">Мальчик</button>
-      <button class="filter-button" data-gender="girl">Девочка</button>
-    </div>
+    <section class="filter-section">
+      <div class="filter-row">
+        <div class="gender-filter">
+          <label>Пол:</label>
+          <button class="filter-button" data-gender="boy">Мальчик</button>
+          <button class="filter-button" data-gender="girl">Девочка</button>
+        </div>
 
-    <div class="age-filter">
-      <label>Возраст:</label>
-      <button class="filter-button small" data-age="0-2">0–2</button>
-      <button class="filter-button small" data-age="2-4">2–4</button>
-      <button class="filter-button small" data-age="4-6">4–6</button>
-      <button class="filter-button small" data-age="6-8">6–8</button>
-    </div>
-  </div>
-</section>
-
+        <div class="age-filter">
+          <label>Возраст:</label>
+          <button class="filter-button small" data-age="0-2">0–2</button>
+          <button class="filter-button small" data-age="2-4">2–4</button>
+          <button class="filter-button small" data-age="4-6">4–6</button>
+          <button class="filter-button small" data-age="6-8">6–8</button>
+        </div>
+      </div>
+    </section>
 
     <div class="book-grid">
       <div class="book-card" data-age="0-2">
@@ -61,45 +60,50 @@
   </main>
 
   <script>
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const bookCards = document.querySelectorAll('.book-card');
+    // Обработка параметров URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const ageParam = urlParams.get('age');
 
-    filterButtons.forEach(button => {
+    // Если есть параметр возраста, активируем соответствующую кнопку
+    if (ageParam) {
+      const ageButton = document.querySelector(`.age-filter .filter-button[data-age="${ageParam}"]`);
+      if (ageButton) {
+        ageButton.classList.add('active');
+        filterBooksByAge(ageParam);
+      }
+    }
+
+    // Фильтрация книг по возрасту
+    function filterBooksByAge(age) {
+      const bookCards = document.querySelectorAll('.book-card');
+      bookCards.forEach(card => {
+        if (age === 'all' || card.dataset.age === age) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Обработчики для кнопок фильтра
+    document.querySelectorAll('.age-filter .filter-button').forEach(button => {
       button.addEventListener('click', () => {
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-
-        const age = button.dataset.age;
-
-        bookCards.forEach(card => {
-          if (age === 'all' || card.dataset.age === age) {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
-          }
+        document.querySelectorAll('.age-filter .filter-button').forEach(btn => {
+          btn.classList.remove('active');
         });
+        button.classList.add('active');
+        filterBooksByAge(button.dataset.age);
+      });
+    });
+
+    // Активность выбора пола
+    const genderButtons = document.querySelectorAll('.gender-filter .filter-button');
+    genderButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        genderButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
       });
     });
   </script>
-  <script>
-  // Активность выбора пола
-  const genderButtons = document.querySelectorAll('.gender-filter .filter-button');
-  genderButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      genderButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-    });
-  });
-
-  // Активность выбора возраста
-  const ageButtons = document.querySelectorAll('.age-filter .filter-button');
-  ageButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      ageButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-    });
-  });
-</script>
-
 </body>
 </html>
