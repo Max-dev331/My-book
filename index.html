@@ -11,17 +11,15 @@
   <header>
     <div class="logo-container">
       <a href="index.html">
-  <img src="logo.png" alt="Fairygram logo" class="logo">
-</a>
+        <img src="logo.png" alt="Fairygram logo" class="logo">
+      </a>
     </div>
-   <nav class="nav-links">
-  <a href="index.html" class="nav-link">Главная</a>
-  <a href="Book.html" class="nav-link">Книги</a>
-  <a href="my-books.html" class="nav-link">Мои книги</a>
-  <a href="support.html" class="nav-link">Поддержка</a>
-</nav>
-
-
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">Главная</a>
+      <a href="Book.html" class="nav-link">Книги</a>
+      <a href="my-books.html" class="nav-link">Мои книги</a>
+      <a href="support.html" class="nav-link">Поддержка</a>
+    </nav>
   </header>
 
   <main class="hero">
@@ -29,23 +27,58 @@
       <img src="book.jpg" class="book-image">
     </div>
     <div class="hero-text">
-          <h1>Магические истории,<br>в которых герой — ты</h1>
-<p class="quote">Есть ли у фей хвосты? Существуют ли они на самом деле? Кто знает. Но каждая книга здесь — дверь в их мир</p>
-<a href="Book.html" class="main-button">Создать</a>
-
+      <h1>Магические истории,<br>в которых герой — ты</h1>
+      <p class="quote">Есть ли у фей хвосты? Существуют ли они на самом деле? Кто знает. Но каждая книга здесь — дверь в их мир</p>
+      <a href="Book.html" class="main-button">Создать</a>
     </div>
   </main>
-<script>
-  const currentPage = window.location.pathname.split("/").pop();
-  const links = document.querySelectorAll(".nav-link");
 
-  links.forEach(link => {
-    const href = link.getAttribute("href");
-    if (href === currentPage || (currentPage === "" && href === "index.html")) {
-      link.classList.add("active");
-    }
-  });
-</script>
+  <!-- Новый раздел с возрастными категориями -->
+  <section class="age-categories">
+    <div class="container">
+      <h2>Выберите историю по возрасту</h2>
+      <div class="age-grid">
+        <div class="age-card">
+          <h3>0-2 года</h3>
+          <p>Первые сказки с яркими картинками</p>
+        </div>
+        <div class="age-card">
+          <h3>2-4 года</h3>
+          <p>Добрые истории перед сном</p>
+        </div>
+        <div class="age-card">
+          <h3>4-6 лет</h3>
+          <p>Развивающие приключения</p>
+        </div>
+        <div class="age-card">
+          <h3>6-8 лет</h3>
+          <p>Захватывающие волшебные миры</p>
+        </div>
+      </div>
+      
+      <div class="discover-section">
+        <h2>Открывайте по интересам</h2>
+        <div class="interest-tags">
+          <span class="tag">🐻 Животные</span>
+          <span class="tag">🏰 Принцессы</span>
+          <span class="tag">🚀 Космос</span>
+          <span class="tag">🦸‍♂️ Супергерои</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const currentPage = window.location.pathname.split("/").pop();
+    const links = document.querySelectorAll(".nav-link");
+
+    links.forEach(link => {
+      const href = link.getAttribute("href");
+      if (href === currentPage || (currentPage === "" && href === "index.html")) {
+        link.classList.add("active");
+      }
+    });
+  </script>
 
 </body>
 </html>
