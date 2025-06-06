@@ -259,18 +259,17 @@ nav ul li a {
   border-color: #fcd5ce;
 }
 
-/* Стили для возрастных карточек (ВНИЗУ страницы) */
+/* Стили для возрастных карточек на главной */
 .age-categories {
   padding: 80px 20px;
   text-align: center;
   background-color: #f9f4ff;
-  margin-top: 60px; /* Отступ от основной секции */
 }
 
 .age-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px; /* Большие расстояния между карточками */
+  gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -281,13 +280,28 @@ nav ul li a {
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   aspect-ratio: 3/4;
-  background: white;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.age-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
 .card-image {
   width: 100%;
   height: 100%;
   position: absolute;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s;
+}
+
+.age-card:hover .card-image {
+  transform: scale(1.05);
 }
 
 .card-content {
@@ -305,14 +319,13 @@ nav ul li a {
 @media (max-width: 768px) {
   .age-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: 20px;
   }
 }
 
 @media (max-width: 480px) {
   .age-grid {
     grid-template-columns: 1fr;
-    gap: 25px;
     max-width: 350px;
   }
 }
