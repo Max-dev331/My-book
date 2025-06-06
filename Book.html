@@ -79,5 +79,25 @@
       });
     });
   </script>
+  <script>
+  // Активность выбора пола
+  const genderButtons = document.querySelectorAll('.gender-filter .filter-button');
+  genderButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      genderButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+    });
+  });
+
+  // Активность выбора возраста
+  const ageButtons = document.querySelectorAll('.age-filter .filter-button');
+  ageButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      ageButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+    });
+  });
+</script>
+
 </body>
 </html>
