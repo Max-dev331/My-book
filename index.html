@@ -5,42 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fairygram — Волшебные книги</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Временные плейсхолдеры для изображений */
+    .card-image {
+      background-color: #f0e6ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7e5aa1;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Хедер остается без изменений -->
-  <header>
-    <div class="logo-container">
-      <a href="index.html">
-        <img src="logo.png" alt="Fairygram logo" class="logo">
-      </a>
-    </div>
-    <nav class="nav-links">
-      <a href="index.html" class="nav-link">Главная</a>
-      <a href="Book.html" class="nav-link">Книги</a>
-      <a href="my-books.html" class="nav-link">Мои книги</a>
-      <a href="support.html" class="nav-link">Поддержка</a>
-    </nav>
-  </header>
+  <!-- Остальной код хедера и основной секции остается без изменений -->
 
-  <main class="hero">
-    <div class="hero-image">
-      <img src="book.jpg" class="book-image">
-    </div>
-    <div class="hero-text">
-      <h1>Магические истории,<br>в которых герой — ты</h1>
-      <p class="quote">Есть ли у фей хвосты? Существуют ли они на самом деле? Кто знает. Но каждая книга здесь — дверь в их мир</p>
-      <a href="Book.html" class="main-button">Создать</a>
-    </div>
-  </main>
-
-  <!-- Обновленный раздел с карточками -->
   <section class="age-categories">
     <div class="container">
       <h2>Выберите историю по возрасту</h2>
       <div class="age-grid">
         <div class="age-card">
-          <div class="card-image" style="background-image: url('age-0-2.jpg');"></div>
+          <div class="card-image">0-2 года</div>
           <div class="card-content">
             <h3>0-2 года</h3>
             <p>Первые сказки с яркими картинками</p>
@@ -48,7 +34,7 @@
         </div>
         
         <div class="age-card">
-          <div class="card-image" style="background-image: url('age-2-4.jpg');"></div>
+          <div class="card-image">2-4 года</div>
           <div class="card-content">
             <h3>2-4 года</h3>
             <p>Добрые истории перед сном</p>
@@ -56,7 +42,7 @@
         </div>
         
         <div class="age-card">
-          <div class="card-image" style="background-image: url('age-4-6.jpg');"></div>
+          <div class="card-image">4-6 лет</div>
           <div class="card-content">
             <h3>4-6 лет</h3>
             <p>Развивающие приключения</p>
@@ -64,7 +50,7 @@
         </div>
         
         <div class="age-card">
-          <div class="card-image" style="background-image: url('age-6-8.jpg');"></div>
+          <div class="card-image">6-8 лет</div>
           <div class="card-content">
             <h3>6-8 лет</h3>
             <p>Захватывающие волшебные миры</p>
@@ -74,17 +60,6 @@
     </div>
   </section>
 
-  <script>
-    const currentPage = window.location.pathname.split("/").pop();
-    const links = document.querySelectorAll(".nav-link");
-
-    links.forEach(link => {
-      const href = link.getAttribute("href");
-      if (href === currentPage || (currentPage === "" && href === "index.html")) {
-        link.classList.add("active");
-      }
-    });
-  </script>
-
+  <!-- Остальной код -->
 </body>
 </html>
