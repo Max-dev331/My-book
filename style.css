@@ -259,76 +259,20 @@ nav ul li a {
   border-color: #fcd5ce;
 }
 
-/* Стили для нового раздела */
+/* Стили для возрастных карточек (ВНИЗУ страницы) */
 .age-categories {
-  background-color: #f9f4ff;
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.age-categories h2 {
-  font-size: 2rem;
-  color: #5e3a8e;
-  margin-bottom: 40px;
-}
-
-.age-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.age-card {
-  background: white;
-  border-radius: 12px;
-  padding: 25px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
-}
-
-.age-card:hover {
-  transform: translateY(-5px);
-}
-
-.age-card h3 {
-  color: #7e5aa1;
-  font-size: 1.5rem;
-}
-
-.discover-section {
-  margin-top: 60px;
-}
-
-.interest-tags {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.tag {
-  background: #e8d5ff;
-  padding: 10px 20px;
-  border-radius: 20px;
-  font-size: 1rem;
-}
-/* Стили для возрастных категорий */
-.age-categories {
-  padding: 80px 20px; /* Увеличили отступы секции */
+  padding: 80px 20px;
   text-align: center;
   background-color: #f9f4ff;
+  margin-top: 60px; /* Отступ от основной секции */
 }
 
 .age-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px; /* Увеличили расстояние между карточками */
+  gap: 40px; /* Большие расстояния между карточками */
   max-width: 1200px;
-  margin: 40px auto; /* Увеличили отступ сверху и снизу */
-  padding: 0 20px;
+  margin: 0 auto;
 }
 
 .age-card {
@@ -336,22 +280,14 @@ nav ul li a {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
   aspect-ratio: 3/4;
-  background: white; /* Фон на случай если изображение не загрузится */
-}
-
-.age-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  background: white;
 }
 
 .card-image {
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 0;
-  left: 0;
 }
 
 .card-content {
@@ -363,38 +299,20 @@ nav ul li a {
   padding: 25px;
   background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
   color: white;
-  text-align: left;
-}
-
-.card-content h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-.card-content p {
-  font-size: 1rem;
-  opacity: 0.9;
-  line-height: 1.4;
 }
 
 /* Адаптивность */
-@media (max-width: 900px) {
-  .age-grid {
-    gap: 30px;
-  }
-}
-
 @media (max-width: 768px) {
   .age-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 25px;
+    gap: 30px;
   }
 }
 
 @media (max-width: 480px) {
   .age-grid {
     grid-template-columns: 1fr;
+    gap: 25px;
     max-width: 350px;
-    gap: 30px;
   }
 }
