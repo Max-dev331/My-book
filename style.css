@@ -13,6 +13,22 @@ header {
   background-color: #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
+.main-button {
+  background-color: #fcd5ce;
+  color: black;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.main-button:hover {
+  background-color: #f8c9be;
+}
 
 .logo {
   height: 100px;
