@@ -5,20 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fairygram — Волшебные книги</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Временные стили для картинок-заглушек */
-    .age-card img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 50%;
-      background: #f0e6ff;
-      margin-bottom: 15px;
-    }
-  </style>
 </head>
 <body>
 
+  <!-- Хедер остается без изменений -->
   <header>
     <div class="logo-container">
       <a href="index.html">
@@ -44,30 +34,41 @@
     </div>
   </main>
 
-  <!-- Обновлённый раздел с возрастными категориями -->
+  <!-- Обновленный раздел с карточками -->
   <section class="age-categories">
     <div class="container">
       <h2>Выберите историю по возрасту</h2>
-      <div class="age-flex">
+      <div class="age-grid">
         <div class="age-card">
-          <img src="age-0-2.jpg" alt="0-2 года"> <!-- Замените на свои изображения -->
-          <h3>0-2 года</h3>
-          <p>Первые сказки с яркими картинками</p>
+          <div class="card-image" style="background-image: url('age-0-2.jpg');"></div>
+          <div class="card-content">
+            <h3>0-2 года</h3>
+            <p>Первые сказки с яркими картинками</p>
+          </div>
         </div>
+        
         <div class="age-card">
-          <img src="age-2-4.jpg" alt="2-4 года"> <!-- Замените на свои изображения -->
-          <h3>2-4 года</h3>
-          <p>Добрые истории перед сном</p>
+          <div class="card-image" style="background-image: url('age-2-4.jpg');"></div>
+          <div class="card-content">
+            <h3>2-4 года</h3>
+            <p>Добрые истории перед сном</p>
+          </div>
         </div>
+        
         <div class="age-card">
-          <img src="age-4-6.jpg" alt="4-6 лет"> <!-- Замените на свои изображения -->
-          <h3>4-6 лет</h3>
-          <p>Развивающие приключения</p>
+          <div class="card-image" style="background-image: url('age-4-6.jpg');"></div>
+          <div class="card-content">
+            <h3>4-6 лет</h3>
+            <p>Развивающие приключения</p>
+          </div>
         </div>
+        
         <div class="age-card">
-          <img src="age-6-8.jpg" alt="6-8 лет"> <!-- Замените на свои изображения -->
-          <h3>6-8 лет</h3>
-          <p>Захватывающие волшебные миры</p>
+          <div class="card-image" style="background-image: url('age-6-8.jpg');"></div>
+          <div class="card-content">
+            <h3>6-8 лет</h3>
+            <p>Захватывающие волшебные миры</p>
+          </div>
         </div>
       </div>
     </div>
