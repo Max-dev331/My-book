@@ -259,3 +259,59 @@ nav ul li a {
   border-color: #fcd5ce;
 }
 
+/* Стили для нового раздела */
+.age-categories {
+  background-color: #f9f4ff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.age-categories h2 {
+  font-size: 2rem;
+  color: #5e3a8e;
+  margin-bottom: 40px;
+}
+
+.age-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.age-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.age-card:hover {
+  transform: translateY(-5px);
+}
+
+.age-card h3 {
+  color: #7e5aa1;
+  font-size: 1.5rem;
+}
+
+.discover-section {
+  margin-top: 60px;
+}
+
+.interest-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.tag {
+  background: #e8d5ff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 1rem;
+}
