@@ -199,16 +199,16 @@ nav ul li a {
 }
 
 .filter-section {
-  text-align: center;
+  display: flex;
+  justify-content: center;
   margin-top: 40px;
 }
 
 .filter-row {
   display: flex;
-  justify-content: center;
   align-items: center;
+  gap: 100px; /* расстояние между блоками Пол и Возраст */
   flex-wrap: wrap;
-  gap: 80px; /* БОЛЬШОЙ интервал между блоками */
 }
 
 .gender-filter,
@@ -229,7 +229,7 @@ nav ul li a {
 }
 
 .filter-button:hover {
-  background-color: #fcd5ce; /* светло-персиковый */
+  background-color: #fcd5ce;
 }
 
 .filter-button.small {
@@ -242,3 +242,4 @@ nav ul li a {
   color: black;
   border-color: #fcd5ce;
 }
+
