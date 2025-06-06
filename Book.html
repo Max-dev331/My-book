@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Книги — Fairygram</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <a href="index.html">
+      <img src="logo.png" alt="Fairygram" class="logo" />
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">Главная</a>
+      <a href="books.html" class="nav-link active">Книги</a>
+      <a href="my-books.html" class="nav-link">Мои книги</a>
+      <a href="support.html" class="nav-link">Поддержка</a>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <h1 class="section-title">Все книги</h1>
+
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-age="all">Показать все</button>
+      <button class="filter-btn" data-age="0-2">0–2</button>
+      <button class="filter-btn" data-age="2-4">2–4</button>
+      <button class="filter-btn" data-age="4-6">4–6</button>
+      <button class="filter-btn" data-age="6-8">6–8</button>
+    </div>
+
+    <div class="book-grid">
+      <div class="book-card" data-age="0-2">
+        <img src="book.png" alt="Книга 1" />
+        <p>Моя первая сказка</p>
+      </div>
+      <div class="book-card" data-age="2-4">
+        <img src="book.png" alt="Книга 2" />
+        <p>Фея и приключения</p>
+      </div>
+      <div class="book-card" data-age="4-6">
+        <img src="book.png" alt="Книга 3" />
+        <p>Ночной волшебник</p>
+      </div>
+      <div class="book-card" data-age="6-8">
+        <img src="book.png" alt="Книга 4" />
+        <p>Лесной дневник</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const bookCards = document.querySelectorAll('.book-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const age = button.dataset.age;
+
+        bookCards.forEach(card => {
+          if (age === 'all' || card.dataset.age === age) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
