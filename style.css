@@ -236,3 +236,9 @@ nav ul li a {
   font-size: 14px;
   padding: 6px 12px;
 }
+
+.filter-button.active {
+  background-color: #fcd5ce;
+  color: black;
+  border-color: #fcd5ce;
+}
