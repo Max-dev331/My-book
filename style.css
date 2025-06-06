@@ -135,4 +135,66 @@ nav ul li a {
   background-color: #e89b89;
 }
 
+/* КНИГИ */
+
+.book-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin: 40px 0;
+}
+
+.book-card {
+  background-color: #fff5ef;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  width: 180px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.book-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.book-card p {
+  font-weight: 500;
+  color: #7b4a3b;
+}
+
+.book-card:hover {
+  transform: scale(1.05);
+}
+
+/* ФИЛЬТР КНОПОК */
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background-color: #fff5ef;
+  color: #7b4a3b;
+  border: 2px solid #e89b89;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background-color: #e89b89;
+  color: white;
+}
 
