@@ -27,34 +27,34 @@
           <label>Пол:</label>
           <button class="filter-button" data-gender="boy">Мальчик</button>
           <button class="filter-button" data-gender="girl">Девочка</button>
-          </div>
-  <div class="filter-group age">
-    <button class="filter-button" data-age="0-2">0-2</button>
-    <button class="filter-button" data-age="2-4">2-4</button>
-    <button class="filter-button" data-age="4-6">4-6</button>
-    <button class="filter-button" data-age="6-8">6-8</button>
-  </div>
-  <div class="filter-group reset">
-    <button class="filter-button reset-button">Показать все</button>
-  </div>
-</div>
-
+        </div>
+        <div class="filter-group age">
+          <label>Возраст:</label>
+          <button class="filter-button" data-age="0-2">0-2</button>
+          <button class="filter-button" data-age="2-4">2-4</button>
+          <button class="filter-button" data-age="4-6">4-6</button>
+          <button class="filter-button" data-age="6-8">6-8</button>
+        </div>
+        <div class="filter-group reset">
+          <button class="filter-button reset-button">Показать все</button>
+        </div>
+      </div>
     </section>
 
     <div class="book-grid">
-      <div class="book-card" data-age="0-2">
+      <div class="book-card" data-age="0-2" data-gender="boy">
         <img src="book.png" alt="Книга 1" />
         <p>Моя первая сказка</p>
       </div>
-      <div class="book-card" data-age="2-4">
+      <div class="book-card" data-age="2-4" data-gender="girl">
         <img src="book.png" alt="Книга 2" />
         <p>Фея и приключения</p>
       </div>
-      <div class="book-card" data-age="4-6">
+      <div class="book-card" data-age="4-6" data-gender="boy">
         <img src="book.png" alt="Книга 3" />
         <p>Ночной волшебник</p>
       </div>
-      <div class="book-card" data-age="6-8">
+      <div class="book-card" data-age="6-8" data-gender="girl">
         <img src="book.png" alt="Книга 4" />
         <p>Лесной дневник</p>
       </div>
@@ -62,72 +62,58 @@
   </main>
 
   <script>
-    // Обработка параметров URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const ageParam = urlParams.get('age');
+    const genderButtons = document.querySelectorAll(".filter-button[data-gender]");
+    const ageButtons = document.querySelectorAll(".filter-button[data-age]");
+    const resetButton = document.querySelector(".reset-button");
+    const books = document.querySelectorAll(".book-card");
 
-    // Если есть параметр возраста, активируем соответствующую кнопку
-    if (ageParam) {
-      const ageButton = document.querySelector(`.age-filter .filter-button[data-age="${ageParam}"]`);
-      if (ageButton) {
-        ageButton.classList.add('active');
-        filterBooksByAge(ageParam);
-      }
-    }
+    let selectedGender = null;
+    let selectedAge = null;
 
-    // Фильтрация книг по возрасту
-    function filterBooksByAge(age) {
-      const bookCards = document.querySelectorAll('.book-card');
-      bookCards.forEach(card => {
-        if (age === 'all' || card.dataset.age === age) {
-          card.style.display = 'block';
+    function filterBooks() {
+      books.forEach(book => {
+        const bookGender = book.dataset.gender;
+        const bookAge = book.dataset.age;
+
+        const matchGender = !selectedGender || selectedGender === bookGender;
+        const matchAge = !selectedAge || selectedAge === bookAge;
+
+        if (matchGender && matchAge) {
+          book.style.display = "block";
         } else {
-          card.style.display = 'none';
+          book.style.display = "none";
         }
       });
     }
 
-    // Обработчики для кнопок фильтра
-    document.querySelectorAll('.age-filter .filter-button').forEach(button => {
-      button.addEventListener('click', () => {
-        document.querySelectorAll('.age-filter .filter-button').forEach(btn => {
-          btn.classList.remove('active');
-        });
-        button.classList.add('active');
-        filterBooksByAge(button.dataset.age);
-      });
-    });
-
-    // Активность выбора пола
-    const genderButtons = document.querySelectorAll('.gender-filter .filter-button');
-    genderButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        genderButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-      });
-    });
-  </script>
-  <script>
-  const filterButtons = document.querySelectorAll(".filter-button");
-  const resetButton = document.querySelector(".reset-button");
-
-  // Подсветка выбранной кнопки
-  filterButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      // Убираем подсветку у всех
-      if (!btn.classList.contains('reset-button')) {
-        btn.parentElement.querySelectorAll(".filter-button").forEach(b => b.classList.remove("active"));
+    genderButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        genderButtons.forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
-      }
+        selectedGender = btn.dataset.gender;
+        filterBooks();
+      });
     });
-  });
 
-  // Сброс фильтров
-  resetButton.addEventListener("click", () => {
-    document.querySelectorAll(".filter-button.active").forEach(btn => btn.classList.remove("active"));
-    // здесь можно также добавить код, который реально сбрасывает фильтрованные книги
-  });
-</script>
+    ageButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        ageButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        selectedAge = btn.dataset.age;
+        filterBooks();
+      });
+    });
 
+    resetButton.addEventListener("click", () => {
+      genderButtons.forEach(b => b.classList.remove("active"));
+      ageButtons.forEach(b => b.classList.remove("active"));
+      selectedGender = null;
+      selectedAge = null;
+      filterBooks();
+    });
+
+    // Инициализация (если нужно)
+    filterBooks();
+  </script>
 </body>
 </html>
