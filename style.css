@@ -298,8 +298,8 @@ nav ul li a {
 }
 
 .age-card {
-  width: 120px;
-  height: 160px;
+  width: 200px;
+  height: 2500px;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
