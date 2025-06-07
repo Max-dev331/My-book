@@ -113,5 +113,27 @@
       });
     });
   </script>
+  <script>
+  const filterButtons = document.querySelectorAll(".filter-button");
+  const resetButton = document.querySelector(".reset-button");
+
+  // Подсветка выбранной кнопки
+  filterButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      // Убираем подсветку у всех
+      if (!btn.classList.contains('reset-button')) {
+        btn.parentElement.querySelectorAll(".filter-button").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+      }
+    });
+  });
+
+  // Сброс фильтров
+  resetButton.addEventListener("click", () => {
+    document.querySelectorAll(".filter-button.active").forEach(btn => btn.classList.remove("active"));
+    // здесь можно также добавить код, который реально сбрасывает фильтрованные книги
+  });
+</script>
+
 </body>
 </html>
