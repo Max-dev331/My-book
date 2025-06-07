@@ -43,6 +43,23 @@ nav ul {
   padding: 0;
 }
 
+.filter-group.reset {
+  margin-left: 20px;
+}
+
+.reset-button {
+  background-color: transparent;
+  border: 2px solid #ffa07a;
+  color: #ffa07a;
+  transition: 0.3s;
+}
+
+.reset-button:hover,
+.reset-button.active {
+  background-color: #ffa07a;
+  color: white;
+}
+
 nav ul li a {
   text-decoration: none;
   color: #4b2c20;
